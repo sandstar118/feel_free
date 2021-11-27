@@ -3,7 +3,7 @@ import sqlite3
 
 dbname = 'FeelFree.db'
 
-
+# 場所一覧の取得
 def get_places():
     conn = sqlite3.connect(dbname)
     cur = conn.cursor()
@@ -14,6 +14,7 @@ def get_places():
     conn.close()
     return data
 
+# 場所の詳細の取得
 def get_place(id):
     conn = sqlite3.connect(dbname)
     cur = conn.cursor()
@@ -28,6 +29,7 @@ def get_place(id):
     conn.close()
     return data, result
 
+# 未完成
 def registration(title, address):
     conn = sqlite3.connect(dbname)
     cur = conn.cursor()
@@ -35,6 +37,7 @@ def registration(title, address):
     conn.commit()
     conn.close()
 
+# 未完成
 def reserve(id, purpose):
     conn = sqlite3.connect(dbname)
     cur = conn.cursor()
@@ -52,6 +55,10 @@ def places():
 def place(id):
     data, result = get_place(id)
     return jsonify( data ), 200 if result else 404
+
+@app.route('/registration', methods = ["POST"])
+def registration():
+    return
 
 if __name__ == '__main__':
     app.run()
