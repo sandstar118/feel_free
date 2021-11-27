@@ -18,7 +18,7 @@ def lend(id):
 
 @app.route('/registration', methods = ["POST"])
 def registration():
-    return Reg.registration(Request)
+    return Reg.registration(request)
 
 @app.route('/reserve', methods = ["POST"])
 def reserve():
