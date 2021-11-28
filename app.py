@@ -3,6 +3,7 @@ from flask import Flask, request
 from controllers import Place as P, Lend as L, Registration as Reg, Reserve as Res
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 @app.route('/places', methods = ["GET"])
 def places():
