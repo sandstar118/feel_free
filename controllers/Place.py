@@ -10,7 +10,7 @@ def get_places():
     cur.execute("SELECT * FROM places")
     data = []
     for row in cur:
-        data.append({ "id":  row[0], "title": row[1], "created_at": row[3]})
+        data.append({ "id":  row[0], "title": row[1], "image_url": row[3], "created_at": row[4]})
     conn.close()
     return jsonify(data)
 
@@ -21,7 +21,7 @@ def get_place(id):
     cur.execute("SELECT * FROM places WHERE  id = :id", { "id": id})
     row = cur.fetchone()
     if(row):
-        data = { "id":  row[0], "title": row[1], "address": row[2], "created_at": row[3]}
+        data = { "id":  row[0], "title": row[1], "address": row[2], "image_url": row[3], "created_at": row[4]}
         result = True
     else:
         data = {}

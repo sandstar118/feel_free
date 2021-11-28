@@ -8,7 +8,7 @@ cur = conn.cursor()
 
 # 場所
 cur.execute("DROP TABLE IF EXISTS places")
-cur.execute("CREATE TABLE places(id INTEGER PRIMARY KEY, title TEXT NOT NULL, address TEXT NOT NULL, created_at  DATETIME DEFAULT CURRENT_TIMESTAMP)")
+cur.execute("CREATE TABLE places(id INTEGER PRIMARY KEY, title TEXT NOT NULL, address TEXT NOT NULL, image_url TEXT, created_at  DATETIME DEFAULT CURRENT_TIMESTAMP)")
 
 # 貸し出し履歴
 cur.execute("DROP TABLE IF EXISTS lend")
@@ -22,7 +22,7 @@ conn.commit()
 # cur.execute("SELECT * FROM places")
 cur.execute("SELECT * FROM places WHERE id = :id", { "id": "1" })
 for row in cur:
-    print("id: " + str(row[0]) + ", title: " + str(row[1]) + ", address: " + str(row[2]) + ", created_at: " + str(row[3]) )
+    print("id: " + str(row[0]) + ", title: " + str(row[1]) + ", address: " + str(row[2]) + ", image_url: " + str(row[3]) + ", created_at: " + str(row[4]) )
 
 # データベースへのコネクションを閉じる。(必須)
 conn.close()
