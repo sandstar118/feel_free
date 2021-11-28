@@ -2,3 +2,4 @@
 - flask 2.0.2
 - jsonify 0.5
 - sqlite3 2.6.0
+- flask-cors 3.0.10
